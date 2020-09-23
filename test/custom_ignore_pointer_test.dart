@@ -11,7 +11,8 @@ void main() {
 
   testWidgets('Test on self', (WidgetTester tester) async {
     final aSelfIgnorePointerKey = GlobalKey();
-    final aContainerKey = GlobalKey();
+    final topContainerKey = GlobalKey();
+    final underContainerKey = GlobalKey();
 
     await tester.pumpWidget(
         MaterialApp(
@@ -27,6 +28,16 @@ void main() {
                     top: 0,
                     bottom: 0,
                     right: 0,
+                    child: Container(
+                      key: underContainerKey,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  Positioned(
+                    left: 0,
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
                     child: SelfIgnorePointer(
                       key: aSelfIgnorePointerKey,
                       child: Stack(
@@ -35,7 +46,7 @@ void main() {
                             left: 50,
                             top: 50,
                             child: Container(
-                              key: aContainerKey,
+                              key: topContainerKey,
                               color: Colors.red,
                               width: 500,
                               height: 500,
@@ -53,10 +64,12 @@ void main() {
     );
 
     final selfIgnoreRenderObj = tester.renderObject(find.byKey(aSelfIgnorePointerKey));
-    final container = tester.renderObject(find.byKey(aContainerKey));
+    final topContainer = tester.renderObject(find.byKey(topContainerKey));
+    final underContainer = tester.renderObject(find.byKey(underContainerKey));
 
     expect(tester.hitTestOnBinding(Offset(40, 40)), doesNotHit(selfIgnoreRenderObj));
-    expect(tester.hitTestOnBinding(Offset(140, 140)), hits(container));
+    expect(tester.hitTestOnBinding(Offset(10, 10)), hits(underContainer));
+    expect(tester.hitTestOnBinding(Offset(140, 140)), hits(topContainer));
   });
 }
 
