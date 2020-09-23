@@ -12,6 +12,7 @@ void main() {
   testWidgets('Test on self', (WidgetTester tester) async {
     final aSelfIgnorePointerKey = GlobalKey();
     final topContainerKey = GlobalKey();
+    final topContainerKey2 = GlobalKey();
     final underContainerKey = GlobalKey();
 
     await tester.pumpWidget(
@@ -40,6 +41,7 @@ void main() {
                     right: 0,
                     child: SelfIgnorePointer(
                       key: aSelfIgnorePointerKey,
+                      hitTargetKey: topContainerKey,
                       child: Stack(
                         children: [
                           Positioned(
@@ -47,6 +49,16 @@ void main() {
                             top: 50,
                             child: Container(
                               key: topContainerKey,
+                              color: Colors.red,
+                              width: 500,
+                              height: 500,
+                            ),
+                          ),
+                          Positioned(
+                            left: 50,
+                            top: 50,
+                            child: Container(
+                              key: topContainerKey2,
                               color: Colors.red,
                               width: 500,
                               height: 500,

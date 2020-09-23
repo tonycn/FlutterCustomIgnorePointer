@@ -1,12 +1,12 @@
 name: custom_ignore_pointer
-description: A new Flutter package project.
+description: FlutterCustomIgnorePointer allow hit on child and ignores hit on itself.
 version: 0.0.1
-author:
-homepage:
+author: Jianjun
+homepage: https://github.com/tonycn/FlutterCustomIgnorePointer
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:

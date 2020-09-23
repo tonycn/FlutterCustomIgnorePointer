@@ -31,6 +31,7 @@ FlutterCustomIgnorePointer is inspired by IgnorePointer.
                     right: 0,
                     child: SelfIgnorePointer(
                       key: aSelfIgnorePointerKey,
+                      hitTargetKey: topContainerKey,
                       child: Stack(
                         children: [
                           Positioned(
@@ -38,6 +39,16 @@ FlutterCustomIgnorePointer is inspired by IgnorePointer.
                             top: 50,
                             child: Container(
                               key: topContainerKey,
+                              color: Colors.red,
+                              width: 500,
+                              height: 500,
+                            ),
+                          ),
+                          Positioned(
+                            left: 50,
+                            top: 50,
+                            child: Container(
+                              key: topContainerKey2,
                               color: Colors.red,
                               width: 500,
                               height: 500,
