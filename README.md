@@ -1,11 +1,10 @@
 # FlutterCustomIgnorePointer
-What's different, FlutterCustomIgnorePointer allow hit on child.
-=======
-# custom_ignore_pointer
 
-A new Flutter package project.
+FlutterCustomIgnorePointer allow hit on child and ignores hit on itself
 
-## Sample Code
+FlutterCustomIgnorePointer is inspired by IgnorePointer.
+
+# Sample Code
 ```
         MaterialApp(
           home: Scaffold(
@@ -20,6 +19,16 @@ A new Flutter package project.
                     top: 0,
                     bottom: 0,
                     right: 0,
+                    child: Container(
+                      key: underContainerKey,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  Positioned(
+                    left: 0,
+                    top: 0,
+                    bottom: 0,
+                    right: 0,
                     child: SelfIgnorePointer(
                       key: aSelfIgnorePointerKey,
                       child: Stack(
@@ -28,7 +37,7 @@ A new Flutter package project.
                             left: 50,
                             top: 50,
                             child: Container(
-                              key: aContainerKey,
+                              key: topContainerKey,
                               color: Colors.red,
                               width: 500,
                               height: 500,
