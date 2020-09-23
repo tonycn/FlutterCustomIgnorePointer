@@ -26,8 +26,7 @@ class SelfIgnorePointer extends SingleChildRenderObjectWidget {
 
   @override
   void updateRenderObject(BuildContext context, RenderSelfIgnorePointer renderObject) {
-    renderObject
-      ..hitTargetKey = hitTargetKey;
+    renderObject.hitTargetKey = hitTargetKey;
   }
 
   @override

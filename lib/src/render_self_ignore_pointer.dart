@@ -8,11 +8,9 @@ class RenderSelfIgnorePointer extends RenderProxyBox {
   /// The [ignoring] argument must not be null. If [ignoringSemantics] is null,
   /// this render object will be ignored for semantics if [ignoring] is true.
   RenderSelfIgnorePointer({
-    GlobalKey hitTargetKey,
+    @required GlobalKey hitTargetKey,
     RenderBox child,
-  }) : _hitTargetKey = hitTargetKey, super(child) {
-    assert(hitTargetKey != null);
-  }
+  }) : assert(hitTargetKey != null), _hitTargetKey = hitTargetKey, super(child);
 
   GlobalKey get hitTargetKey => _hitTargetKey;
   GlobalKey _hitTargetKey;
