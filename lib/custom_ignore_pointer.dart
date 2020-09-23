@@ -1,7 +1,4 @@
 library custom_ignore_pointer;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/render_self_ignore_pointer.dart';
+export 'src/self_ignore_pointer.dart';
